@@ -1,33 +1,31 @@
-============================================  
-**Jinsi ya kutumia 7-base_geometry.py**  
-============================================  
+============================================
+How to use 7-base_geometry.py
+============================================
 
-Darasa hili ni rahisi sana, kwani lina kazi moja tu inayoitwa  
-**`integer_validator()`**.  
+This library is very simple, since it only has one function called
+ ''integer_validator()''.
 
-**Nambari:**  
-========  
-**`integer_validator()`** inarudisha True ikiwa nambari ni integer.  
+Numbers:
+========
+''integer_validator()'' returns True if a num is integer.
+:: with positives integers
+   >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+   >>> bg = BaseGeometry()
 
-:: kwa nambari chanya  
-   >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry  
-   >>> bg = BaseGeometry()  
+:: with positive integer
+   >>> bg.integer_validator("my_int", 12)
 
-:: na integer chanya  
-   >>> bg.integer_validator("my_int", 12)  
+:: with negative integer
+   >>> bg.integer_validator("number", -12)
+   Traceback (most recent call last):
+   ValueError: number must be greater than 0
 
-:: na integer hasi  
-   >>> bg.integer_validator("number", -12)  
-   Traceback (most recent call last):  
-   ValueError: nambari lazima iwe kubwa kuliko 0  
+:: with 3 arguments
+   >>> bg.integer_validator("numbers", 0, 1)
+   Traceback (most recent call last):
+   TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
-:: na hoja 3  
-   >>> bg.integer_validator("numbers", 0, 1)  
-   Traceback (most recent call last):  
-   TypeError: integer_validator() inachukua hoja 3 za nafasi lakini 4 zimetolewa  
-
-:: na integer isiyo na kipimo  
-   >>> bg.integer_validator("infnumber", int('inf'))  
-   Traceback (most recent call last):  
-   ValueError: maandiko yasiyofaa kwa int() kwa msingi wa 10: 'inf'  
-
+:: with infinite integer
+   >>> bg.integer_validator("infnumber", int('inf'))
+   Traceback (most recent call last):
+   ValueError: invalid literal for int() with base 10: 'inf'
