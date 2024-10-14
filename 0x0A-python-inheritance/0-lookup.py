@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 """
 =============================
-Module with the method lookup
+Moduli yenye mbinu ya lookup
 =============================
 """
 
 
 def lookup(obj):
     """
-    Returns a list of available attributes and methods of an object.
+    Inarejesha orodha ya sifa na mbinu zinazopatikana za kitu.
 
-    Args:
-        obj: The object whose attributes and methods are to be listed.
+    Hoja:
+        obj: Kitu ambacho sifa na mbinu zake zitatolewa.
 
-    Returns:
-        A list of strings representing the names of the available
-        attributes and methods.
+    Rejesho:
+        Orodha ya maneno ya kamba inayowakilisha majina ya sifa na
+        mbinu zinazopatikana.
     """
     return dir(obj)
