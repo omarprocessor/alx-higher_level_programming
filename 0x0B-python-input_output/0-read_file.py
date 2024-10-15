@@ -1,12 +1,20 @@
 #!/usr/bin/python3
+"""
+===============================
+Moduli yenye mbinu ya kusoma faili
+===============================
+"""
+
 
 def read_file(filename=""):
     """
-    Reads a UTF-8 encoded text file and prints its content to stdout.
+    Inasoma faili ya maandishi ya UTF-8 na kuchapisha yaliyomo kwenye stdout.
 
-    Args:
-        filename (str): The name of the file to be read. Default is
-            an empty string.
+    Hoja:
+        filename: Jina la faili inayosomwa. Chaguo-msingi ni kamba tupu.
+
+    Rejesho:
+        Hakuna rejesho, lakini yaliyomo kwenye faili yatapakiwa kwenye stdout.
     """
     with open(filename, 'r', encoding='UTF-8') as file:
         print(file.read(), end="")
