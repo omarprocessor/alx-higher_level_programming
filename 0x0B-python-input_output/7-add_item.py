@@ -1,26 +1,26 @@
 #!/usr/bin/python3
-"""
-===============================
-Scripti inayoongeza hoja za amri kwenye orodha na kuziokoa kwenye faili ya JSON
-===============================
-"""
-
+"""Moduli ya kuhifadhi kwenye JSON."""
+import json
+import os.path
 import sys
-import os
+from sys import argv
 
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
+json_list = []
 
-# Kuanza orodha
+# Angalia kama faili lipo
 if os.path.exists(filename):
-    my_list = load_from_json_file(filename)
-else:
-    my_list = []
+    try:
+        json_list = load_from_json_file(filename)
+    except json.decoder.JSONDecodeError:
+        json_list = []  # Tathmini orodha kama faili ni tupsahihi
 
-# Ongeza hoja zote za amri kwenye orodha (bila jina la script)
-my_list.extend(sys.argv[1:])
+# Ongeza hoja zote za amri kwenye orodha
+for index in argv[1:]:
+    json_list.append(index)
 
-# Hifadhi orodha iliyo sasishwa kwenye faili ya JSON
-save_to_json_file(my_list, filename)
+# Hifadhi orodha kwenye faili la JSON
+save_to_json_file(json_list, filename)
