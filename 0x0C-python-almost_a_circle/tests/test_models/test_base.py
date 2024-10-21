@@ -1,7 +1,8 @@
-# tests/test_base.py
-
+#!/usr/bin/python3
+""" test_base.py """
 import unittest
 from models.base import Base
+
 
 class TestBase(unittest.TestCase):
     """Test cases for the Base class."""
@@ -37,6 +38,7 @@ class TestBase(unittest.TestCase):
         b8 = Base()
         self.assertEqual(b7.id, 7)
         self.assertEqual(b8.id, 1)
+
 
 if __name__ == "__main__":
     unittest.main()
