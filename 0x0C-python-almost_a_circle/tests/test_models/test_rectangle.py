@@ -64,52 +64,52 @@ na 'height'"
 
         with self.assertRaises(TypeError) as e:
             r = Rectangle("1", 2)
-        msg = "width lazima iwe nambari"
+        msg = "width must be > 0"
         self.assertEqual(str(e.exception), msg)
 
         with self.assertRaises(TypeError) as e:
             r = Rectangle(1, "2")
-        msg = "height lazima iwe nambari"
+        msg = "height must be an integer"
         self.assertEqual(str(e.exception), msg)
 
         with self.assertRaises(TypeError) as e:
             r = Rectangle(1, 2, "3")
-        msg = "x lazima iwe nambari"
+        msg = "x must be an integer"
         self.assertEqual(str(e.exception), msg)
 
         with self.assertRaises(TypeError) as e:
             r = Rectangle(1, 2, 3, "4")
-        msg = "y lazima iwe nambari"
+        msg = "y must be >= 0"
         self.assertEqual(str(e.exception), msg)
 
         with self.assertRaises(ValueError) as e:
             r = Rectangle(-1, 2)
-        msg = "width lazima iwe > 0"
+        msg = "width must be > 0"
         self.assertEqual(str(e.exception), msg)
 
         with self.assertRaises(ValueError) as e:
             r = Rectangle(1, -2)
-        msg = "height lazima iwe > 0"
+        msg = "height must be an integer"
         self.assertEqual(str(e.exception), msg)
 
         with self.assertRaises(ValueError) as e:
             r = Rectangle(0, 2)
-        msg = "width lazima iwe > 0"
+        msg = "width must be > 0"
         self.assertEqual(str(e.exception), msg)
 
         with self.assertRaises(ValueError) as e:
             r = Rectangle(1, 0)
-        msg = "height lazima iwe > 0"
+        msg = "height must be an integer"
         self.assertEqual(str(e.exception), msg)
 
         with self.assertRaises(ValueError) as e:
             r = Rectangle(1, 2, -3)
-        msg = "x lazima iwe >= 0"
+        msg = "x must be an integer"
         self.assertEqual(str(e.exception), msg)
 
         with self.assertRaises(ValueError) as e:
             r = Rectangle(1, 2, 3, -4)
-        msg = "y lazima iwe >= 0"
+        msg = "y must be >= 0"
         self.assertEqual(str(e.exception), msg)
 
     def test_D_instantiation_positional(self):
@@ -163,7 +163,7 @@ na 'height'"
         r = Rectangle(1, 2)
         attributes = ["x", "y", "width", "height"]
         for attribute in attributes:
-            s = "{} lazima iwe nambari".format(attribute)
+            s = "{} must be an integer".format(attribute)
             for invalid_type in self.invalid_types():
                 with self.assertRaises(TypeError) as e:
                     setattr(r, attribute, invalid_type)
@@ -174,7 +174,7 @@ na 'height'"
         r = Rectangle(1, 2)
         attributes = ["width", "height"]
         for attribute in attributes:
-            s = "{} lazima iwe > 0".format(attribute)
+            s = "{} must be > 0".format(attribute)
             with self.assertRaises(ValueError) as e:
                 setattr(r, attribute, -(randrange(10) + 1))
             self.assertEqual(str(e.exception), s)
@@ -184,7 +184,7 @@ na 'height'"
         r = Rectangle(1, 2)
         attributes = ["x", "y"]
         for attribute in attributes:
-            s = "{} lazima iwe >= 0".format(attribute)
+            s = "{} must be >= 0".format(attribute)
             with self.assertRaises(ValueError) as e:
                 setattr(r, attribute, -(randrange(10) + 1))
             self.assertEqual(str(e.exception), s)
@@ -194,7 +194,7 @@ na 'height'"
         r = Rectangle(1, 2)
         attributes = ["width", "height"]
         for attribute in attributes:
-            s = "{} lazima iwe > 0".format(attribute)
+            s = "{} must be > 0".format(attribute)
             with self.assertRaises(ValueError) as e:
                 setattr(r, attribute, 0)
             self.assertEqual(str(e.exception), s)
@@ -225,19 +225,19 @@ na 'height'"
         r = Rectangle(1, 2)
         with self.assertRaises(ValueError) as e:
             r.width = -1
-        self.assertEqual(str(e.exception), "width lazima iwe > 0")
+        self.assertEqual(str(e.exception), "width must be > 0")
 
         with self.assertRaises(ValueError) as e:
             r.height = -1
-        self.assertEqual(str(e.exception), "height lazima iwe > 0")
+        self.assertEqual(str(e.exception), "height must be an integer")
 
         with self.assertRaises(ValueError) as e:
             r.x = -1
-        self.assertEqual(str(e.exception), "x lazima iwe >= 0")
+        self.assertEqual(str(e.exception), "x must be an integer")
 
         with self.assertRaises(ValueError) as e:
             r.y = -1
-        self.assertEqual(str(e.exception), "y lazima iwe >= 0")
+        self.assertEqual(str(e.exception), "y must be >= 0")
 
     def test_I_area(self):
         '''Inajaribu kuhesabu eneo.'''
@@ -325,7 +325,7 @@ na 'height'"
         r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaises(TypeError) as e:
             r.update(width="str")
-        self.assertEqual(str(e.exception), "width lazima iwe nambari")
+        self.assertEqual(str(e.exception), "width must be > 0")
 
     def test_O_save_to_file(self):
         '''Inajaribu kuokoa Rectangle kwa faili.'''
