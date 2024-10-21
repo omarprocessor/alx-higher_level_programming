@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''Module for Base class.'''
 class Base:
     """Base class to manage the 'id' attribute for all future classes."""
     __nb_objects = 0

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" test_base.py """
+"""Module for Base unit tests."""
 import unittest
 from models.base import Base
 
