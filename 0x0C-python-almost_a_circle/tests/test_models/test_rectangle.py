@@ -306,19 +306,19 @@ na 'height'"
         r = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaises(ValueError) as e:
             r.update(x=-2)
-        self.assertEqual(str(e.exception), "x lazima iwe >= 0")
+        self.assertEqual(str(e.exception), "x must be an integer")
 
         with self.assertRaises(ValueError) as e:
             r.update(y=-2)
-        self.assertEqual(str(e.exception), "y lazima iwe >= 0")
+        self.assertEqual(str(e.exception), "y must be >= 0")
 
         with self.assertRaises(ValueError) as e:
             r.update(width=-2)
-        self.assertEqual(str(e.exception), "width lazima iwe > 0")
+        self.assertEqual(str(e.exception), "width must be > 0")
 
         with self.assertRaises(ValueError) as e:
             r.update(height=-2)
-        self.assertEqual(str(e.exception), "height lazima iwe > 0")
+        self.assertEqual(str(e.exception), "height must be an integer")
 
     def test_N_update_invalid_type(self):
         '''Inajaribu kusasisha Rectangle kwa aina zisizo sahihi.'''
