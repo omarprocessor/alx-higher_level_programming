@@ -57,11 +57,11 @@ class Rectangle(Base):
     def validate_integer(self, name, value, eq=True):
         '''Njia ya kuthibitisha thamani.'''
         if type(value) != int:
-            raise TypeError("{} lazima iwe integer".format(name))
+            raise TypeError("{} must be an integer".format(name))
         if eq and value < 0:
-            raise ValueError("{} lazima iwe >= 0".format(name))
+            raise ValueError("{} must be >= 0".format(name))
         elif not eq and value <= 0:
-            raise ValueError("{} lazima iwe > 0".format(name))
+            raise ValueError("{} must be > 0".format(name))
 
     def area(self):
         '''Hesabu eneo la rectangle hii.'''
