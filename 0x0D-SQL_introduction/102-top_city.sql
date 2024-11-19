@@ -1,4 +1,5 @@
 -- Select the city and calculate the average temperature for each city during July and August
+USE `hbtn_0c_0`
 SELECT city, AVG(temperature) AS avg_temp
 -- From the table that stores temperature data
 FROM temperatures
