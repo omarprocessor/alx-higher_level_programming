@@ -1,5 +1,4 @@
 -- 100-not_my_genres.sql
-
 SELECT `tv_genres`.`name`
   FROM `tv_genres`
  WHERE `tv_genres`.`id` NOT IN
