@@ -3,18 +3,17 @@ const myObject = {
   type: 'object',
   value: 12,
   incr: function () {
-    this.value += 1; // Increment the 'value' property
+    this.value += 1; // Increments the 'value' property by 1
   }
 };
 
-console.log(myObject);
+console.log(myObject); // First log, without 'incr' function showing yet
 
-// Call the incr function to increment 'value'
-myObject.incr();
-console.log(myObject);
+myObject.incr(); // Call the incr function
+console.log(myObject); // After first increment
 
-myObject.incr();
-console.log(myObject);
+myObject.incr(); // Call the incr function again
+console.log(myObject); // After second increment
 
-myObject.incr();
-console.log(myObject);
+myObject.incr(); // Call the incr function once more
+console.log(myObject); // After third increment
