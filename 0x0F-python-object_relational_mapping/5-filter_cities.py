@@ -2,6 +2,7 @@
 import MySQLdb
 import sys
 
+
 """
 This script lists all cities of a given state from a MySQL database.
 
