@@ -20,8 +20,8 @@ def main():
     # Step 3: Create a cursor object to interact with the database
     cursor = db.cursor()
 
-    # Step 4: Execute the query to fetch all states
-    cursor.execute("SELECT id, name FROM states ORDER BY id ASC")
+    # Step 4: Execute the query to fetch distinct states
+    cursor.execute("SELECT DISTINCT id, name FROM states ORDER BY id ASC")
 
     # Step 5: Fetch all rows from the query
     rows = cursor.fetchall()
