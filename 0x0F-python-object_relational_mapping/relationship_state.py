@@ -1,15 +1,12 @@
 #!/usr/bin/python3
+# relationship_state.py
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import relationship
-from relationship_city import Base
-
+from base import Base
+from relationship_city import City
 
 class State(Base):
-    """State class that represents states table in the database"""
     __tablename__ = 'states'
 
-    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
-
-    # Relationship with the City class
-    cities = relationship('City', back_populates='state', cascade='all, delete', passive_deletes=True)
+    cities = relationship("City", backref="state", cascade="all, delete-orphan")
