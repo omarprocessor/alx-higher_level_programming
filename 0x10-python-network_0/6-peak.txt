@@ -1,2 +1,1 @@
-#contains the complexity of the 6-peak.py algorithm
 O(log(n))
