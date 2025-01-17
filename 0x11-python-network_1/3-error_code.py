@@ -25,12 +25,11 @@ import urllib.error
 import sys
 
 if __name__ == "__main__":
-    url = sys.argv[1]  # Get URL from command-line arguments
+    url = sys.argv[1]
 
     try:
-        # Send the request and handle the response
         with urllib.request.urlopen(url) as response:
-            print(response.read().decode('utf-8'))  # Decode and print the response body
+            body = response.read().decode('utf-8')
+            print(body)
     except urllib.error.HTTPError as e:
-        # Print the error code if an HTTPError occurs
         print(f"Error code: {e.code}")
